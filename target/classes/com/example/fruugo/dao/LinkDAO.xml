@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fruugo.dao.LinkDAO">
+    <resultMap id="userResultMap" type="com.example.fruugo.dataobject.Link">
+        <id column="id" property="id"/>
+        <result column="link" property="link"/>
+    </resultMap>
+    <insert id="add" parameterType="com.example.fruugo.dataobject.Link">
+        insert into `link` (link, status)
+        values (#{link}, #{status})
+    </insert>
+    <update id="update" parameterType="com.example.fruugo.dataobject.Link">
+        update `link`
+        set link = #{link}
+        where id = #{id}
+    </update>
+    <delete id="delete" parameterType="com.example.fruugo.dataobject.Link">
+        update `link`
+        set status = #{status}
+        where id = #{id}
+    </delete>
+    <select id="getAll" resultType="com.example.fruugo.dataobject.Link">
+        select * from `link` where status = 1
+    </select>
+
+
+</mapper>
